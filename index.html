@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=AW-17369476466">
+    </script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+        gtag('js', new Date());
+
+        gtag('config', 'AW-17369476466');
+    </script>
+    <!-- Event snippet for Purchase conversion page -->
+    <script>
+        gtag('event', 'conversion', {
+            'send_to': 'AW-17369476466/T5upCLja-_IaEPLatNpA',
+            'value': 1.0,
+            'currency': 'NGN',
+            'transaction_id': ''
+        });
+    </script>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Circlerslab - Custom Web & AI Solutions</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/feather-icons"></script>
+    <style>
+        :root {
+            --bg-dark: #0a0a0a;
+            --bg-secondary: #171717;
+            --accent-cyan: #06b6d4;
+            --accent-blue: #3b82f6;
+            --text-primary: #f5f5f5;
+            --text-secondary: #a3a3a3;
+            --border-color: #262626;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-dark);
+            color: var(--text-primary);
+        }
+
+        .hero-bg {
+            background-image: linear-gradient(to bottom, rgba(10, 10, 10, 0.8), rgba(10, 10, 10, 1)), url('https://images.pexels.com/photos/3861958/pexels-photo-3861958.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2');
+            background-size: cover;
+            background-position: center;
+        }
+
+        .service-card,
+        .testimonial-card {
+            background-color: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .service-card:hover,
+        .testimonial-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(6, 182, 212, 0.1);
+        }
+
+        .glow-button {
+            box-shadow: 0 0 10px var(--accent-cyan), 0 0 20px var(--accent-cyan);
+        }
+
+        .process-step:not(:last-child)::after {
+            content: '';
+            position: absolute;
+            top: 24px;
+            right: -50%;
+            width: 100%;
+            height: 2px;
+            background-color: var(--border-color);
+            z-index: -1;
+        }
+
+        @media (max-width: 768px) {
+            .process-step:not(:last-child)::after {
+                background-image: linear-gradient(to bottom, var(--border-color) 50%, transparent 50%);
+                background-size: 2px 10px;
+                top: 48px;
+                right: auto;
+                left: 23px;
+                width: 2px;
+                height: 100%;
+            }
+        }
+
+        /* Custom style for the WhatsApp button to ensure it's always on top */
+
+        .whatsapp-float {
+            z-index: 1000;
+            /* High z-index to keep it above other content */
+        }
+    </style>
+</head>
+
+<body class="antialiased">
+
+    <header class="bg-black/50 backdrop-blur-sm sticky top-0 z-50">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="#" class="flex items-center space-x-2">
+                <svg class="h-8 w-8 text-cyan-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 10l-2 1m0 0l-2-1m2 1v2.5M20 7l-2 1m2-1l-2-1m2 1v2.5M12 21v-2.5M12 18.5v-2.5m0 0l-2 1m2-1l2 1M4 7l2 1m-2-1l2-1m-2 1v2.5M12 2.5V5m0 13.5v-2.5m0 0l-2-1m2 1l2-1"/>
+                </svg>
+                <span class="text-xl font-bold text-white">Circlerslab</span>
+            </a>
+            <nav class="hidden md:flex items-center space-x-8">
+                <a href="#about" class="text-text-secondary hover:text-white transition-colors">About Us</a>
+                <a href="#services" class="text-text-secondary hover:text-white transition-colors">Services</a>
+                <a href="#why-us" class="text-text-secondary hover:text-white transition-colors">Why Choose Us</a>
+                <a href="#contact" class="text-text-secondary hover:text-white transition-colors">Contact</a>
+            </nav>
+            <a href="https://wa.me/2348106081318?text=Hello%20Webcrack%20Technologies,%20I'm%20interested%20in%20your%20services." target="_blank" class="hidden md:inline-block bg-cyan-500 text-white font-semibold px-5 py-2 rounded-lg hover:bg-cyan-600 transition-all">
+                Get a Quote
+            </a>
+            <!-- Mobile Menu Button -->
+            <div class="md:hidden">
+                <button id="menu-toggle" class="text-white focus:outline-none">
+                    <svg id="menu-open-icon" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
+                    </svg>
+                    <svg id="menu-close-icon" class="h-6 w-6 hidden" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <!-- Mobile Menu Dropdown -->
+        <div id="mobile-menu" class="hidden md:hidden">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+                <a href="#about" class="block text-text-secondary hover:text-white px-3 py-2 rounded-md text-base font-medium">About Us</a>
+                <a href="#services" class="block text-text-secondary hover:text-white px-3 py-2 rounded-md text-base font-medium">Services</a>   
+                <a href="#why-us" class="block text-text-secondary hover:text-white px-3 py-2 rounded-md text-base font-medium">Why Choose Us</a>
+                <a href="#contact" class="block text-text-secondary hover:text-white px-3 py-2 rounded-md text-base font-medium">Contact</a>
+                <a href="https://wa.me/2348106081318?text=Hello%20Webcrack%20Technologies,%20I'm%20interested%20in%20your%20services." target="_blank" class="block bg-cyan-500 text-white font-semibold px-3 py-3 rounded-md text-base mt-2 text-center">Get a Quote</a>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero-bg min-h-screen flex items-center">
+            <div class="container mx-auto px-6 text-center">
+                <div class="max-w-3xl mx-auto">
+                    <h1 class="text-4xl md:text-6xl font-extrabold text-white leading-tight mb-4">
+                        Build, Launch, & Grow with <span class="text-cyan-400">Future-Proof Technology</span>
+                    </h1>
+                    <p class="text-lg md:text-xl text-text-secondary mb-8">
+                        From custom web development and powerful AI courses to script marketing and professional installation, we are your dedicated partner for digital success.
+                    </p>
+                    <a href="https://wa.me/2348106081318?text=Hello%20Webcrack%20Technologies,%20I'd%20like%20to%20request%20a%20quote%20for%20your%20services." target="_blank" class="glow-button inline-block bg-cyan-400 text-black font-bold py-4 px-10 rounded-lg shadow-lg hover:bg-cyan-300 transition-all text-lg">
+                        Request a Free Consultation
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <section id="about" class="py-16 md:py-24 bg-bg-dark">
+            <div class="container mx-auto px-6">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+                    <div class="h-96 rounded-2xl overflow-hidden shadow-lg">
+                        <img src="https://images.pexels.com/photos/3184418/pexels-photo-3184418.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="Our Team" class="w-full h-full object-cover">
+                    </div>
+                    <div class="pr-0 md:pl-12">
+                        <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">About <span class="text-cyan-400">Circlerslab
+                        
+                        </span></h2>
+                        <p class="text-text-secondary mb-4">
+                            Circlerslab is a forward-thinking technology company based in ibadan, Nigeria. Our mission is to empower businesses and individuals by providing cutting-edge web and AI solutions that are both accessible and affordable.
+                        </p>
+                        <p class="text-text-secondary mb-8">
+                            We believe in the transformative power of technology and strive to be a catalyst for innovation within our community and beyond. Our team is passionate about crafting digital experiences that are not only visually stunning but also highly functional and
+                            results-driven.
+                        </p>
+                        <a href="#services" class="inline-block bg-blue-600 text-white font-semibold px-8 py-3 rounded-lg hover:bg-blue-700 transition-all">
+                              View Our Services
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="services" class="py-16 md:py-24 bg-bg-secondary">
+            <div class="container mx-auto px-6">
+                <div class="text-center max-w-3xl mx-auto mb-12">
+                    <h2 class="text-3xl md:text-4xl font-bold text-white">Our Core Services</h2>
+                    <p class="mt-4 text-text-secondary">We provide end-to-end solutions to bring your digital ideas to life and ensure they reach the right audience.</p>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                    <div class="service-card rounded-2xl p-6 text-center">
+                        <img src="https://images.pexels.com/photos/546819/pexels-photo-546819.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="Web Development" class="w-full h-40 object-cover rounded-lg mb-4">
+                        <h3 class="text-xl font-bold text-white mb-2">Web Development</h3>
+                        <p class="text-text-secondary text-sm">Custom websites and web applications built with cutting-edge technology for performance, security, and scalability.</p>
+                    </div>
+                    <div class="service-card rounded-2xl p-6 text-center">
+                        <img src="https://images.pexels.com/photos/6476254/pexels-photo-6476254.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="Script Marketing" class="w-full h-40 object-cover rounded-lg mb-4">
+                        <h3 class="text-xl font-bold text-white mb-2">Script Marketing</h3>
+                        <p class="text-text-secondary text-sm">Strategic marketing campaigns to promote your software, scripts, and digital products to a global audience.</p>
+                    </div>
+                    <div class="service-card rounded-2xl p-6 text-center">
+                        <img src="https://images.pexels.com/photos/577585/pexels-photo-577585.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="Script Installation" class="w-full h-40 object-cover rounded-lg mb-4">
+                        <h3 class="text-xl font-bold text-white mb-2">Script Installation</h3>
+                        <p class="text-text-secondary text-sm">Hassle-free, professional installation and configuration of your scripts on any hosting environment.</p>
+                    </div>
+                    <div class="service-card rounded-2xl p-6 text-center">
+                        <img src="https://images.pexels.com/photos/8386440/pexels-photo-8386440.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="AI Courses" class="w-full h-40 object-cover rounded-lg mb-4">
+                        <h3 class="text-xl font-bold text-white mb-2">AI Related Courses</h3>
+                        <p class="text-text-secondary text-sm">Master the future with our expert-led courses in Artificial Intelligence, from fundamentals to advanced applications.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="why-us" class="py-16 md:py-24 bg-bg-dark">
+            <div class="container mx-auto px-6">
+                <div class="text-center max-w-3xl mx-auto mb-12">
+                    <h2 class="text-3xl md:text-4xl font-bold text-white">Why Partner With Us?</h2>
+                    <p class="mt-4 text-text-secondary">We are more than just developers; we are your strategic partners in growth.</p>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <div class="text-center p-6">
+                        <div class="flex items-center justify-center h-16 w-16 rounded-full bg-cyan-400/10 mx-auto mb-4">
+                            <i data-feather="box" class="h-8 w-8 text-cyan-400"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-white mb-2">Tailored Solutions</h3>
+                        <p class="text-text-secondary">We don't do one-size-fits-all. Every project is uniquely crafted to meet your specific goals and challenges.</p>
+                    </div>
+                    <div class="text-center p-6">
+                        <div class="flex items-center justify-center h-16 w-16 rounded-full bg-cyan-400/10 mx-auto mb-4">
+                            <i data-feather="cpu" class="h-8 w-8 text-cyan-400"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-white mb-2">Expert Team</h3>
+                        <p class="text-text-secondary">Our team consists of experienced developers, designers, and AI specialists passionate about technology.</p>
+                    </div>
+                    <div class="text-center p-6">
+                        <div class="flex items-center justify-center h-16 w-16 rounded-full bg-cyan-400/10 mx-auto mb-4">
+                            <i data-feather="life-buoy" class="h-8 w-8 text-cyan-400"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-white mb-2">Dedicated Support</h3>
+                        <p class="text-text-secondary">Your project's success is our priority. We offer ongoing support to ensure everything runs smoothly.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="process" class="py-16 md:py-24 bg-bg-secondary">
+            <div class="container mx-auto px-6">
+                <div class="text-center max-w-3xl mx-auto mb-16">
+                    <h2 class="text-3xl md:text-4xl font-bold text-white">Our Simple 4-Step Process</h2>
+                    <p class="mt-4 text-text-secondary">We follow a clear and collaborative process to ensure your project is a success from start to finish.</p>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-4 gap-8 md:gap-0 relative">
+                    <div class="process-step relative flex flex-col items-center text-center px-4">
+                        <div class="flex items-center justify-center h-12 w-12 rounded-full bg-cyan-500 text-black font-bold text-xl mb-4 z-10">1</div>
+                        <h3 class="text-lg font-semibold text-white mb-2">Discovery</h3>
+                        <p class="text-sm text-text-secondary">We start by understanding your vision, goals, and requirements.</p>
+                    </div>
+                    <div class="process-step relative flex flex-col items-center text-center px-4">
+                        <div class="flex items-center justify-center h-12 w-12 rounded-full bg-cyan-500 text-black font-bold text-xl mb-4 z-10">2</div>
+                        <h3 class="text-lg font-semibold text-white mb-2">Design & Develop</h3>
+                        <p class="text-sm text-text-secondary">Our team designs the user experience and builds the solution with clean, efficient code.</p>
+                    </div>
+                    <div class="process-step relative flex flex-col items-center text-center px-4">
+                        <div class="flex items-center justify-center h-12 w-12 rounded-full bg-cyan-500 text-black font-bold text-xl mb-4 z-10">3</div>
+                        <h3 class="text-lg font-semibold text-white mb-2">Testing & Feedback</h3>
+                        <p class="text-sm text-text-secondary">We rigorously test everything and incorporate your feedback for refinement.</p>
+                    </div>
+                    <div class="process-step relative flex flex-col items-center text-center px-4">
+                        <div class="flex items-center justify-center h-12 w-12 rounded-full bg-cyan-500 text-black font-bold text-xl mb-4 z-10">4</div>
+                        <h3 class="text-lg font-semibold text-white mb-2">Launch & Support</h3>
+                        <p class="text-sm text-text-secondary">We deploy your project and provide ongoing support for growth and maintenance.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="testimonials" class="py-16 md:py-24 bg-bg-dark">
+            <div class="container mx-auto px-6">
+                <div class="text-center max-w-3xl mx-auto mb-12">
+                    <h2 class="text-3xl md:text-4xl font-bold text-white">What Our Clients Say</h2>
+                    <p class="mt-4 text-text-secondary">We are proud to have earned the trust of businesses and individuals.</p>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <div class="testimonial-card rounded-2xl p-6">
+                        <p class="text-text-secondary mb-4">"Webcrack Technologies transformed our online presence. Their team was professional, creative, and delivered beyond our expectations. Highly recommended!"</p>
+                        <div class="flex items-center">
+                            <img class="w-12 h-12 rounded-full mr-4" src="https://i.pravatar.cc/150?img=1" alt="Avatar of client">
+                            <div>
+                                <h4 class="font-bold text-white">James Godvra</h4>
+                                <p class="text-sm text-text-secondary">CEO, mesh link Groups</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="testimonial-card rounded-2xl p-6">
+                        <p class="text-text-secondary mb-4">"The AI course I took was incredibly insightful and practical. The instructors are experts in their field and provided excellent support throughout the learning process."</p>
+                        <div class="flex items-center">
+                            <img class="w-12 h-12 rounded-full mr-4" src="https://i.pravatar.cc/150?img=2" alt="Avatar of client">
+                            <div>
+                                <h4 class="font-bold text-white">peter wills 2</h4>
+                                <p class="text-sm text-text-secondary">AI Student</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="testimonial-card rounded-2xl p-6">
+                        <p class="text-text-secondary mb-4">"The script installation service was a lifesaver. Fast, efficient, and completely hassle-free. Their team handled everything perfectly."</p>
+                        <div class="flex items-center">
+                            <img class="w-12 h-12 rounded-full mr-4" src="https://i.pravatar.cc/150?img=3" alt="Avatar of client">
+                            <div>
+                                <h4 class="font-bold text-white">Moses O.</h4>
+                                <p class="text-sm text-text-secondary">Freelance Developer</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <footer id="contact" class="bg-bg-secondary border-t border-border-color">
+            <div class="container mx-auto px-6 py-12">
+                <div class="grid grid-cols-1 md:grid-cols-4 gap-8 text-center md:text-left">
+                    <div class="col-span-1 md:col-span-2">
+                        <a href="https://webcrack.ng" class="flex items-center justify-center md:justify-start space-x-2 mb-4">
+                             <svg class="h-8 w-8 text-cyan-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 10l-2 1m0 0l-2-1m2 1v2.5M20 7l-2 1m2-1l-2-1m2 1v2.5M12 21v-2.5M12 18.5v-2.5m0 0l-2 1m2-1l2 1M4 7l2 1m-2-1l2-1m-2 1v2.5M12 2.5V5m0 13.5v-2.5m0 0l-2-1m2 1l2-1"/>
+                            </svg>
+                            <span class="text-xl font-bold text-white">Circlerslab</span>
+                        </a>
+                        <p class="text-sm text-text-secondary pr-0 md:pr-16">Your partner in digital innovation and growth, providing top-tier web solutions from the heart of Ogbomosho to the world.</p>
+                    </div>
+                    <div>
+                        <h4 class="font-bold text-white text-lg mb-4">Quick Links</h4>
+                        <ul class="space-y-2 text-sm">
+                            <li><a href="#about" class="text-text-secondary hover:text-white transition-colors">About Us</a></li>
+                            <li><a href="#services" class="text-text-secondary hover:text-white transition-colors">Services</a></li>
+                            <li><a href="#why-us" class="text-text-secondary hover:text-white transition-colors">Why Choose Us</a></li>
+                            <li><a href="#process" class="text-text-secondary hover:text-white transition-colors">Our Process</a></li>
+                             
+                        </ul>
+                    </div>
+                    <div>
+                        <h4 class="font-bold text-white text-lg mb-4">Contact Us</h4>
+                        <ul class="space-y-3 text-sm">
+                            <li class="flex items-start justify-center md:justify-start"><i data-feather="map-pin" class="h-4 w-4 mr-2 mt-1 text-cyan-400 flex-shrink-0"></i><span class="text-text-secondary">Opposite Nipco filling station, owode ogbomosho, oyo state</span></li>
+                            <li class="flex items-center justify-center md:justify-start"><i data-feather="mail" class="h-4 w-4 mr-2 text-cyan-400"></i><a href="mailto:contact@webcrack.ng" class="text-text-secondary hover:text-white">contact@webcrack.ng</a></li>
+                            <li class="flex items-center justify-center md:justify-start"><i data-feather="phone" class="h-4 w-4 mr-2 text-cyan-400"></i><a href="tel:+2348106081318" class="text-text-secondary hover:text-white">+234 810 608 1318</a></li>
+                        </ul>
+                        <div class="flex justify-center md:justify-start space-x-4 mt-6">
+                            <a href="#" class="text-text-secondary hover:text-white"><i data-feather="twitter"></i></a>
+                            <a href="#" class="text-text-secondary hover:text-white"><i data-feather="linkedin"></i></a>
+                            <a href="#" class="text-text-secondary hover:text-white"><i data-feather="github"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="mt-10 pt-8 border-t border-border-color text-center text-sm text-text-secondary">
+                    <p>&copy; 2025 Circlerslab. All Rights Reserved.</p>
+                </div>
+            </div>
+        </footer>
+
+    </main>
+
+    <!-- Floating WhatsApp Button -->
+    <div class="fixed bottom-6 right-6 z-50 whatsapp-float">
+        <a href="https://wa.link/r91bjp" target="_blank" rel="noopener noreferrer" class="block">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/2062095_application_chat_communication_logo_whatsapp_icon.svg/2048px-2062095_application_chat_communication_logo_whatsapp_icon.svg.png" 
+                 alt="WhatsApp Chat" 
+                 class="w-16 h-16 rounded-full shadow-lg hover:scale-110 transition-transform duration-300 ease-in-out 
+                        border-4 border-white/20 hover:border-white/50"
+                 onerror="this.onerror=null;this.src='https://placehold.co/64x64/06b6d4/ffffff?text=WA'">
+        </a>
+    </div>
+
+    <script>
+        feather.replace();
+
+        // Mobile menu toggle
+        const menuToggle = document.getElementById('menu-toggle');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const menuOpenIcon = document.getElementById('menu-open-icon');
+        const menuCloseIcon = document.getElementById('menu-close-icon');
+
+        menuToggle.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+            menuOpenIcon.classList.toggle('hidden');
+            menuCloseIcon.classList.toggle('hidden');
+        });
+    </script>
+</body>
+
+</html>
