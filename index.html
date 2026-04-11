@@ -826,10 +826,146 @@
 
         /* Mobile Devices (Up to 768px) */
         @media (max-width: 768px) {
+            /* Main Content */
+            main {
+                padding-top: 0 !important;
+            }
+
             /* Header */
             header {
                 padding: 0 16px;
             }
+            header .container-wide {
+                padding: 0 !important;
+            }
+            
+            /* Hero Section */
+            .hero-canvas {
+                position: fixed !important;
+                pointer-events: none;
+                opacity: 0.5;
+            }
+            section.relative.py-16 {
+                padding: 80px 16px 40px !important;
+                position: relative;
+                z-index: 10;
+            }
+            
+            /* Hero Content */
+            .container-wide {
+                padding: 0 16px !important;
+                max-width: 100% !important;
+            }
+            .heading-display {
+                font-size: clamp(2rem, 10vw, 3rem) !important;
+            }
+            .text-lg, .text-xl {
+                font-size: 1rem !important;
+            }
+            
+            /* Mobile Menu */
+            .mobile-menu {
+                display: none;
+            }
+            .mobile-menu.active {
+                display: block;
+            }
+            
+            /* About Section */
+            #about {
+                padding: 40px 16px !important;
+                position: relative;
+                z-index: 10;
+            }
+            #about .grid {
+                grid-template-columns: 1fr !important;
+                gap: 24px !important;
+            }
+            #about .img-container {
+                margin-bottom: 0 !important;
+            }
+            #about .img-container .absolute {
+                position: relative !important;
+                bottom: auto !important;
+                right: auto !important;
+                margin-top: -30px !important;
+                margin-left: auto !important;
+                margin-right: 16px !important;
+                width: fit-content !important;
+                z-index: 30 !important;
+            }
+            
+            /* Service Cards */
+            .grid {
+                gap: 16px !important;
+            }
+            .card-premium {
+                padding: 24px !important;
+            }
+            
+            /* Portfolio Grid */
+            #portfolio-preview .grid {
+                grid-template-columns: 1fr !important;
+            }
+            .portfolio-card.aspect-\[16\/9\] {
+                aspect-ratio: 4/3;
+            }
+            .portfolio-card.aspect-square {
+                aspect-ratio: 4/3;
+            }
+            
+            /* Process Section */
+            .grid.md\:grid-cols-4 {
+                grid-template-columns: 1fr 1fr !important;
+                gap: 16px !important;
+            }
+            .step-number {
+                width: 48px !important;
+                height: 48px !important;
+                font-size: 18px !important;
+            }
+            
+            /* Stats Section */
+            .stat-card {
+                padding: 20px !important;
+            }
+            .stat-number {
+                font-size: 36px !important;
+            }
+            
+            /* Testimonials */
+            .testimonial-card {
+                padding: 24px !important;
+            }
+            
+            /* Blog Preview */
+            .blog-card-img {
+                aspect-ratio: 16/9 !important;
+            }
+            
+            /* CTA Section */
+            .cta-section {
+                padding: 40px 16px !important;
+            }
+            
+            /* Footer */
+            footer {
+                padding: 40px 16px !important;
+            }
+            footer .flex-col {
+                gap: 20px !important;
+            }
+            
+            /* WhatsApp Button */
+            .whatsapp-float {
+                bottom: 16px !important;
+                right: 16px !important;
+            }
+            .whatsapp-btn {
+                width: 52px !important;
+                height: 52px !important;
+            }
+        }
             header .container-wide {
                 padding: 0 !important;
             }
@@ -1071,7 +1207,7 @@
         <div class="container-wide px-6 lg:px-8">
             <div class="flex items-center justify-between h-20">
                 <a href="#" class="flex items-center gap-3 group">
-                    <img src="../circlerslab-logo.png" alt="Circlerslab Logo" class="h-12 w-auto">
+                    <img src="../logo1.png" alt="Circlerslab Logo" class="h-12 w-auto">
                     <span class="text-xl font-bold tracking-tight">Circlerslab</span>
                 </a>
                 
@@ -1121,9 +1257,9 @@
         </div>
     </div>
 
-    <main>
+    <main class="pt-20">
         <!-- Hero Section -->
-        <section class="relative min-h-screen flex items-center overflow-hidden">
+        <section class="relative py-16 md:py-24 overflow-hidden">
             <!-- Animated Background -->
             <div class="hero-canvas">
                 <div class="orb orb-1"></div>
@@ -1156,9 +1292,9 @@
                 </div>
             </div>
 
-            <div class="container-wide relative z-10 pt-32 pb-20 px-6 lg:px-8">
+            <div class="container-wide relative z-10 px-6 lg:px-8">
                 <div class="max-w-5xl mx-auto text-center">
-                    <div class="inline-flex items-center gap-3 px-5 py-3 rounded-full bg-white/5 border border-white/10 backdrop-blur-xl mb-10">
+                    <div class="inline-flex items-center gap-3 px-5 py-3 rounded-full bg-white/5 border border-white/10 backdrop-blur-xl mb-8">
                         <span class="relative flex h-3 w-3">
                             <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-cyan-400 opacity-75"></span>
                             <span class="relative inline-flex rounded-full h-3 w-3 bg-cyan-500"></span>
@@ -1166,16 +1302,16 @@
                         <span class="text-sm text-slate-300 font-medium">Digital Agency & Creative Studio</span>
                     </div>
                     
-                    <h1 class="heading-display mb-8">
+                    <h1 class="heading-display mb-6">
                         <span class="block mb-2">Build. Launch. Grow.</span>
                         <span class="block text-gradient">Future-Ready Technology</span>
                     </h1>
                     
-                    <p class="text-lg md:text-xl leading-relaxed max-w-2xl mx-auto mb-12" style="color: #e2e8f0;">
+                    <p class="text-lg md:text-xl leading-relaxed max-w-2xl mx-auto mb-10" style="color: #e2e8f0;">
                         We craft high-performing websites, applications, and AI-powered experiences that help ambitious brands dominate the digital landscape.
                     </p>
                     
-                    <div class="flex flex-col sm:flex-row items-center justify-center gap-5 mb-16">
+                    <div class="flex flex-col sm:flex-row items-center justify-center gap-4 mb-12">
                         <a href="https://wa.me/message/L6EIUV5F7QFWF1" target="_blank" class="btn-primary text-lg">
                             Start Your Project
                             <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
@@ -1188,7 +1324,7 @@
                     </div>
                     
                     <!-- Marquee -->
-                    <div class="border-y border-white/10 py-6 mt-8">
+                    <div class="border-y border-white/10 py-4">
                         <div class="marquee-container">
                             <div class="marquee-content">
                                 <span class="text-sm font-semibold text-slate-400 mx-8">Web Development</span>
@@ -1222,7 +1358,7 @@
             </div>
 
             <!-- Scroll Indicator -->
-            <div class="absolute bottom-10 left-1/2 -translate-x-1/2 z-10">
+            <div class="absolute bottom-6 left-1/2 -translate-x-1/2 z-10 hidden md:block">
                 <div class="w-6 h-10 rounded-full border-2 border-white/20 flex justify-center pt-2">
                     <div class="w-1.5 h-3 bg-cyan-400 rounded-full animate-bounce"></div>
                 </div>
