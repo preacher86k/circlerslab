@@ -793,6 +793,231 @@
         .blog-card:hover .blog-card-img img {
             transform: scale(1.08);
         }
+
+        /* ========== RESPONSIVE STYLES ========== */
+        
+        /* Extra Small Devices (iPhone SE, small Android) */
+        @media (max-width: 380px) {
+            .heading-display {
+                font-size: clamp(2rem, 10vw, 3rem);
+            }
+            .heading-section {
+                font-size: clamp(1.5rem, 8vw, 2rem);
+            }
+            .btn-primary, .btn-secondary {
+                padding: 12px 20px;
+                font-size: 14px;
+            }
+            .tag {
+                padding: 6px 10px;
+                font-size: 10px;
+            }
+        }
+
+        /* Small Devices (Mobile Phones) */
+        @media (min-width: 381px) and (max-width: 480px) {
+            .heading-display {
+                font-size: clamp(2.2rem, 9vw, 3.5rem);
+            }
+            .heading-section {
+                font-size: clamp(1.6rem, 7vw, 2.2rem);
+            }
+        }
+
+        /* Mobile Devices (Up to 768px) */
+        @media (max-width: 768px) {
+            /* Header */
+            header {
+                padding: 0 16px;
+            }
+            header .container-wide {
+                padding: 0 !important;
+            }
+            
+            /* Hero Section */
+            .hero-canvas {
+                position: fixed;
+                pointer-events: none;
+            }
+            .orb {
+                width: 200px !important;
+                height: 200px !important;
+            }
+            .orb-1 {
+                top: -50px;
+                left: -100px;
+            }
+            .orb-2 {
+                width: 150px !important;
+                height: 150px !important;
+                bottom: 20%;
+            }
+            .orb-3 {
+                display: none;
+            }
+            .particle {
+                display: none;
+            }
+            .geo-shape {
+                display: none;
+            }
+            .glow-line {
+                display: none;
+            }
+            
+            /* Section Padding */
+            .section-padding {
+                padding: 60px 16px !important;
+            }
+            .container-wide {
+                padding: 0 16px !important;
+            }
+            
+            /* Hero Content */
+            .hero-canvas ~ div {
+                padding-top: 100px !important;
+            }
+            .heading-display {
+                font-size: clamp(2.5rem, 10vw, 4rem);
+            }
+            .text-lg {
+                font-size: 1rem !important;
+            }
+            
+            /* Mobile Menu */
+            .mobile-menu {
+                display: none;
+            }
+            .mobile-menu.active {
+                display: block;
+            }
+            
+            /* Service Cards */
+            .grid {
+                gap: 16px !important;
+            }
+            .card-premium {
+                padding: 24px !important;
+            }
+            
+            /* Portfolio Grid */
+            #portfolio-preview .grid {
+                grid-template-columns: 1fr !important;
+            }
+            .portfolio-card.aspect-\[16\/9\] {
+                aspect-ratio: 4/3;
+            }
+            .portfolio-card.aspect-square {
+                aspect-ratio: 4/3;
+            }
+            
+            /* Process Section */
+            .grid.md\:grid-cols-4 {
+                grid-template-columns: 1fr 1fr !important;
+                gap: 24px !important;
+            }
+            .step-number {
+                width: 48px !important;
+                height: 48px !important;
+                font-size: 18px !important;
+            }
+            
+            /* Stats Section */
+            .stat-card {
+                padding: 20px !important;
+            }
+            .stat-number {
+                font-size: 36px !important;
+            }
+            
+            /* Testimonials */
+            .testimonial-card {
+                padding: 24px !important;
+            }
+            
+            /* Blog Preview */
+            .blog-card-img {
+                aspect-ratio: 16/9 !important;
+            }
+            
+            /* CTA Section */
+            .cta-section {
+                padding: 40px 16px !important;
+            }
+            
+            /* Footer */
+            footer {
+                padding: 40px 16px !important;
+            }
+            footer .flex-col {
+                gap: 20px !important;
+            }
+            
+            /* WhatsApp Button */
+            .whatsapp-float {
+                bottom: 16px !important;
+                right: 16px !important;
+            }
+            .whatsapp-btn {
+                width: 52px !important;
+                height: 52px !important;
+            }
+        }
+
+        /* Tablet Devices (768px - 1024px) */
+        @media (min-width: 769px) and (max-width: 1024px) {
+            .section-padding {
+                padding: 100px 24px !important;
+            }
+            .grid {
+                gap: 20px !important;
+            }
+            .card-premium {
+                padding: 28px !important;
+            }
+            .heading-display {
+                font-size: clamp(3rem, 6vw, 4.5rem);
+            }
+            .process-step {
+                padding: 20px !important;
+            }
+        }
+
+        /* Desktop and Large Screens */
+        @media (min-width: 1025px) {
+            .container-wide {
+                max-width: 1400px;
+            }
+        }
+
+        /* Landscape Mode on Mobile */
+        @media (max-width: 768px) and (orientation: landscape) {
+            .hero-canvas ~ div {
+                padding-top: 80px !important;
+            }
+            .section-padding {
+                padding: 40px 16px !important;
+            }
+        }
+
+        /* Fix for iOS Safari viewport issues */
+        @supports (-webkit-touch-callout: none) {
+            @media (max-width: 768px) {
+                body {
+                    min-height: -webkit-fill-available;
+                }
+                .hero-canvas {
+                    position: absolute;
+                }
+            }
+        }
+
+        /* High DPI Displays */
+        @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+            .orb, .particle {
+                transform: translateZ(0);
+            }
+        }
     </style>
 </head>
 
@@ -1571,4 +1796,4 @@
     </script>
 </body>
 
-</html>
+</html> 
