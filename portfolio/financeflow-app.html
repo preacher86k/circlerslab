@@ -1,0 +1,595 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FinanceFlow App | Circlerslab Portfolio</title>
+    <meta name="description" content="FinanceFlow App - Mobile banking UI/UX design by Circlerslab. A comprehensive finance app design with intuitive navigation and modern aesthetics.">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-primary: #030712;
+            --accent: #06b6d4;
+        }
+
+        * {
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background-color: var(--bg-primary);
+            color: #f8fafc;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        .text-gradient {
+            background: linear-gradient(135deg, #06b6d4 0%, #8b5cf6 50%, #ec4899 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero-bg {
+            position: absolute;
+            inset: 0;
+            overflow: hidden;
+            z-index: 0;
+        }
+
+        .hero-bg::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: 
+                radial-gradient(ellipse at 30% 0%, rgba(251, 191, 36, 0.15) 0%, transparent 50%),
+                radial-gradient(ellipse at 70% 100%, rgba(139, 92, 246, 0.1) 0%, transparent 50%);
+        }
+
+        .orb {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(60px);
+            animation: float 20s ease-in-out infinite;
+        }
+
+        .orb-1 {
+            width: 400px;
+            height: 400px;
+            background: linear-gradient(135deg, rgba(251, 191, 36, 0.3), rgba(251, 191, 36, 0.05));
+            top: -100px;
+            right: -100px;
+        }
+
+        .orb-2 {
+            width: 300px;
+            height: 300px;
+            background: linear-gradient(135deg, rgba(139, 92, 246, 0.3), rgba(139, 92, 246, 0.05));
+            bottom: 0;
+            left: -100px;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translate(0, 0); }
+            50% { transform: translate(20px, -20px); }
+        }
+
+        header {
+            background: rgba(3, 7, 18, 0.8);
+            backdrop-filter: blur-2xl;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .nav-link {
+            color: #94a3b8;
+            font-size: 13px;
+            font-weight: 600;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            padding: 10px 16px;
+            border-radius: 8px;
+        }
+
+        .nav-link:hover {
+            color: #f8fafc;
+            background: rgba(6, 182, 212, 0.08);
+            text-shadow: 0 0 20px rgba(6, 182, 212, 0.3);
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: 6px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 0;
+            height: 2px;
+            background: linear-gradient(90deg, #06b6d4, #8b5cf6, #ec4899);
+            transition: width 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            border-radius: 2px;
+            box-shadow: 0 0 8px rgba(6, 182, 212, 0.5);
+        }
+
+        .nav-link:hover::after {
+            width: calc(100% - 32px);
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #06b6d4 0%, #0891b2 100%);
+            color: #030712;
+            font-weight: 600;
+            padding: 14px 28px;
+            border-radius: 12px;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 20px 40px rgba(6, 182, 212, 0.3);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            border: 1px solid rgba(148, 163, 184, 0.3);
+            color: #f8fafc;
+            font-weight: 500;
+            padding: 14px 28px;
+            border-radius: 12px;
+            transition: all 0.3s;
+        }
+
+        .btn-secondary:hover {
+            border-color: #06b6d4;
+            color: #06b6d4;
+            background: rgba(6, 182, 212, 0.1);
+        }
+
+        .container-wide {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        .tag {
+            display: inline-block;
+            padding: 6px 12px;
+            background: linear-gradient(135deg, rgba(251, 191, 36, 0.15), rgba(139, 92, 246, 0.1));
+            border: 1px solid rgba(251, 191, 36, 0.2);
+            color: #fbbf24;
+            font-size: 11px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            border-radius: 6px;
+        }
+
+        .heading-section {
+            font-size: clamp(2rem, 5vw, 3rem);
+            font-weight: 700;
+            line-height: 1.2;
+            letter-spacing: -0.03em;
+        }
+
+        .phone-mockup {
+            background: linear-gradient(135deg, #1e293b, #0f172a);
+            border-radius: 40px;
+            padding: 12px;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(255, 255, 255, 0.1);
+            max-width: 320px;
+            margin: 0 auto;
+        }
+
+        .phone-screen {
+            background: #030712;
+            border-radius: 32px;
+            overflow: hidden;
+            aspect-ratio: 9/19.5;
+        }
+
+        .metric-card {
+            background: linear-gradient(135deg, rgba(15, 23, 42, 0.6), rgba(15, 23, 42, 0.3));
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(148, 163, 184, 0.1);
+            border-radius: 16px;
+            padding: 24px;
+            text-align: center;
+            transition: all 0.3s;
+        }
+
+        .metric-card:hover {
+            border-color: rgba(251, 191, 36, 0.3);
+            transform: translateY(-4px);
+        }
+
+        .metric-number {
+            font-size: 48px;
+            font-weight: 800;
+            background: linear-gradient(135deg, #fbbf24, #8b5cf6);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            line-height: 1;
+        }
+
+        .detail-card {
+            background: linear-gradient(135deg, rgba(15, 23, 42, 0.6), rgba(15, 23, 42, 0.3));
+            border: 1px solid rgba(148, 163, 184, 0.1);
+            border-radius: 16px;
+            padding: 24px;
+        }
+
+        .image-card {
+            border-radius: 16px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .image-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .image-card:hover img {
+            transform: scale(1.05);
+        }
+
+        footer {
+            background: #030712;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .whatsapp-float {
+            position: fixed;
+            bottom: 32px;
+            right: 32px;
+            z-index: 100;
+        }
+
+        .whatsapp-btn {
+            width: 64px;
+            height: 64px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #25D366, #128C7E);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 8px 32px rgba(37, 211, 102, 0.4);
+            transition: all 0.3s;
+            animation: whatsappPulse 2s ease-in-out infinite;
+        }
+
+        @keyframes whatsappPulse {
+            0%, 100% { box-shadow: 0 8px 32px rgba(37, 211, 102, 0.4), 0 0 0 4px rgba(37, 211, 102, 0.2); }
+            50% { box-shadow: 0 8px 32px rgba(37, 211, 102, 0.6), 0 0 0 12px rgba(37, 211, 102, 0.1); }
+        }
+
+        .whatsapp-btn:hover {
+            transform: scale(1.1);
+        }
+
+        @media (max-width: 768px) {
+            .whatsapp-float {
+                bottom: 20px;
+                right: 20px;
+            }
+            .whatsapp-btn {
+                width: 56px;
+                height: 56px;
+            }
+        }
+
+        /* ========== RESPONSIVE STYLES ========== */
+        @media (max-width: 768px) {
+            header .container-wide { padding: 0 16px !important; max-width: 100% !important; }
+            main { padding-top: 100px !important; }
+            main.pb-20 { padding-bottom: 40px !important; }
+            .hero-bg { position: fixed; pointer-events: none; }
+            .orb { width: 150px !important; height: 150px !important; }
+            .orb-1 { top: -50px; right: -100px; }
+            .orb-2 { display: none; }
+            section.relative.py-12, section.py-12 { padding: 20px 16px !important; }
+            .container-wide { padding: 0 16px !important; max-width: 100% !important; }
+            .heading-section { font-size: clamp(1.8rem, 7vw, 3rem) !important; }
+            .text-lg { font-size: 1rem !important; }
+            .grid.grid-cols-2.md\:grid-cols-4 { grid-template-columns: 1fr 1fr !important; gap: 12px !important; }
+            .detail-card { padding: 16px !important; }
+            .grid.md\:grid-cols-3 { grid-template-columns: 1fr !important; }
+            .metric-card { padding: 20px !important; }
+            .metric-number { font-size: 32px !important; }
+            .image-card { border-radius: 12px !important; margin-bottom: 16px !important; }
+            .video-container { border-radius: 12px !important; }
+            .browser-mockup { border-radius: 12px !important; }
+            .browser-header { padding: 8px 12px; }
+            .browser-dot { width: 10px; height: 10px; }
+            .browser-url { font-size: 10px; padding: 4px 8px; }
+            footer { padding: 32px 16px !important; }
+        }
+        @media (max-width: 480px) {
+            .grid.grid-cols-2.md\:grid-cols-4 { grid-template-columns: 1fr !important; }
+            .btn-primary, .btn-secondary { width: 100% !important; justify-content: center !important; }
+        }
+        @supports (-webkit-touch-callout: none) { @media (max-width: 768px) { body { min-height: -webkit-fill-available; } } }
+    </style>
+</head>
+
+<body class="antialiased">
+
+    <header class="fixed top-0 left-0 right-0 z-50">
+        <div class="container-wide">
+            <div class="flex items-center justify-between h-20">
+                <a href="../portfolio.html" class="flex items-center gap-3">
+                    <svg class="w-5 h-5 text-yellow-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+                    </svg>
+                    <span class="text-sm font-medium text-slate-300 hover:text-white transition-colors">Back to Portfolio</span>
+                </a>
+                
+                <a href="../index.html" class="flex items-center gap-3">
+                    <img src="../../logo1.png" alt="Circlerslab Logo" class="h-10 w-auto">
+                    <span class="text-lg font-bold tracking-tight hidden sm:block">Circlerslab</span>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <main class="pt-32 pb-20">
+        <section class="relative py-12 overflow-hidden">
+            <div class="hero-bg">
+                <div class="orb orb-1"></div>
+                <div class="orb orb-2"></div>
+            </div>
+
+            <div class="container-wide relative z-10">
+                <div class="flex flex-wrap gap-3 mb-6">
+                    <span class="tag">Graphic Design</span>
+                    <span class="tag">UI/UX</span>
+                    <span class="tag">Mobile App</span>
+                </div>
+                
+                <h1 class="heading-section mb-6">FinanceFlow App</h1>
+                <p class="text-lg max-w-3xl leading-relaxed mb-12" style="color: #cbd5e1;">
+                    A comprehensive mobile banking app design featuring intuitive money management, seamless transactions, and beautiful data visualizations for a premium financial experience.
+                </p>
+
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-12">
+                    <div class="detail-card">
+                        <div class="text-xs text-slate-400 uppercase tracking-wider mb-2">Client</div>
+                        <div class="font-semibold" style="color: #f8fafc;">FinanceFlow Inc.</div>
+                    </div>
+                    <div class="detail-card">
+                        <div class="text-xs text-slate-400 uppercase tracking-wider mb-2">Location</div>
+                        <div class="font-semibold" style="color: #f8fafc;">Toronto, Canada</div>
+                    </div>
+                    <div class="detail-card">
+                        <div class="text-xs text-slate-400 uppercase tracking-wider mb-2">Launch Date</div>
+                        <div class="font-semibold" style="color: #f8fafc;">February 2025</div>
+                    </div>
+                    <div class="detail-card">
+                        <div class="text-xs text-slate-400 uppercase tracking-wider mb-2">Job Type</div>
+                        <div class="font-semibold" style="color: #f8fafc;">UI/UX Design</div>
+                    </div>
+                </div>
+
+                <a href="https://wa.me/message/L6EIUV5F7QFWF1" target="_blank" class="btn-primary">
+                    Start Similar Project
+                    <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                    </svg>
+                </a>
+            </div>
+        </section>
+
+        <section class="py-12">
+            <div class="container-wide">
+                <div class="grid md:grid-cols-3 gap-8 justify-items-center">
+                    <div class="phone-mockup">
+                        <div class="phone-screen">
+                            <img src="https://images.pexels.com/photos/4386321/pexels-photo-4386321.jpeg?auto=compress&cs=tinysrgb&w=400&h=867&dpr=2" alt="FinanceFlow Home Screen" class="w-full h-full object-cover">
+                        </div>
+                    </div>
+                    <div class="phone-mockup">
+                        <div class="phone-screen">
+                            <img src="https://images.pexels.com/photos/4386431/pexels-photo-4386431.jpeg?auto=compress&cs=tinysrgb&w=400&h=867&dpr=2" alt="FinanceFlow Transactions" class="w-full h-full object-cover">
+                        </div>
+                    </div>
+                    <div class="phone-mockup">
+                        <div class="phone-screen">
+                            <img src="https://images.pexels.com/photos/4386326/pexels-photo-4386326.jpeg?auto=compress&cs=tinysrgb&w=400&h=867&dpr=2" alt="FinanceFlow Analytics" class="w-full h-full object-cover">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="py-12">
+            <div class="container-wide">
+                <div class="grid md:grid-cols-2 gap-8">
+                    <div>
+                        <h2 class="text-2xl font-bold mb-4" style="color: #f8fafc;">The Challenge</h2>
+                        <p class="leading-relaxed" style="color: #cbd5e1;">
+                            FinanceFlow wanted to create a mobile banking app that stands out in a crowded market. They needed a design that balances sophisticated financial tools with an approachable, easy-to-use interface that appeals to both tech-savvy millennials and traditional banking customers.
+                        </p>
+                    </div>
+                    <div>
+                        <h2 class="text-2xl font-bold mb-4" style="color: #f8fafc;">Our Solution</h2>
+                        <p class="leading-relaxed" style="color: #cbd5e1;">
+                            We designed a complete mobile banking experience with clean navigation, intuitive transaction flows, beautiful charts and graphs, and a dark mode that feels premium. Every screen was crafted with accessibility and ease-of-use as top priorities.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="py-12">
+            <div class="container-wide">
+                <h2 class="text-2xl font-bold mb-8" style="color: #f8fafc;">Key Screens</h2>
+                <div class="grid md:grid-cols-3 gap-6">
+                    <div class="detail-card">
+                        <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-yellow-500/20 to-purple-500/20 flex items-center justify-center mb-4">
+                            <svg class="w-6 h-6 text-yellow-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 18.75a60.07 60.07 0 0115.797 2.101c.727.198 1.453-.342 1.453-1.096V18.75M3.75 4.5v.75A.75.75 0 013 6h-.75m0 0v-.375c0-.621.504-1.125 1.125-1.125H20.25M2.25 6v9m18-10.5v.75c0 .414.336.75.75.75h.75m-1.5-1.5h.375c.621 0 1.125.504 1.125 1.125v9.75c0 .621-.504 1.125-1.125 1.125h-.375m1.5-1.5H21a.75.75 0 00-.75.75v.75m0 0H3.75m0 0h-.375a1.125 1.125 0 01-1.125-1.125V15m1.5 1.5v-.75A.75.75 0 003 15h-.75M15 10.5a3 3 0 11-6 0 3 3 0 016 0zm3 0h.008v.008H18V10.5zm-12 0h.008v.008H6V10.5z" />
+                            </svg>
+                        </div>
+                        <h3 class="font-bold mb-2" style="color: #f8fafc;">Dashboard</h3>
+                        <p class="text-sm" style="color: #94a3b8;">Balance overview, quick actions, and spending summary at a glance.</p>
+                    </div>
+                    <div class="detail-card">
+                        <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-yellow-500/20 to-purple-500/20 flex items-center justify-center mb-4">
+                            <svg class="w-6 h-6 text-yellow-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 18.75a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 00-3 0m3 0h6m-9 0H3.375a1.125 1.125 0 01-1.125-1.125V14.25m17.25 4.5a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 00-3 0m3 0h1.125c.621 0 1.129-.504 1.09-1.124a17.902 17.902 0 00-3.213-9.193 2.056 2.056 0 00-1.58-.86H14.25M16.5 18.75h-2.25m0-11.177v-.958c0-.568-.422-1.048-.987-1.106a48.554 48.554 0 00-10.026 0 1.106 1.106 0 00-.987 1.106v7.635m12-6.677v6.677m0 4.5v-4.5m0 0h-12" />
+                            </svg>
+                        </div>
+                        <h3 class="font-bold mb-2" style="color: #f8fafc;">Transactions</h3>
+                        <p class="text-sm" style="color: #94a3b8;">Searchable history, filters, and detailed transaction information.</p>
+                    </div>
+                    <div class="detail-card">
+                        <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-yellow-500/20 to-purple-500/20 flex items-center justify-center mb-4">
+                            <svg class="w-6 h-6 text-yellow-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M3 13.125C3 12.504 3.504 12 4.125 12h2.25c.621 0 1.125.504 1.125 1.125v6.75C7.5 20.496 6.996 21 6.375 21h-2.25A1.125 1.125 0 013 19.875v-6.75zM9.75 8.625c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125v11.25c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 01-1.125-1.125V8.625zM16.5 4.125c0-.621.504-1.125 1.125-1.125h2.25C20.496 3 21 3.504 21 4.125v15.75c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 01-1.125-1.125V4.125z" />
+                            </svg>
+                        </div>
+                        <h3 class="font-bold mb-2" style="color: #f8fafc;">Analytics</h3>
+                        <p class="text-sm" style="color: #94a3b8;">Visual spending insights, budgets, and financial goal tracking.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="py-12">
+            <div class="container-wide">
+                <h2 class="text-2xl font-bold mb-8" style="color: #f8fafc;">Design Gallery</h2>
+                <div class="grid md:grid-cols-2 gap-6">
+                    <div class="image-card aspect-video">
+                        <img src="https://images.pexels.com/photos/3183150/pexels-photo-3183150.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="Onboarding Flow">
+                    </div>
+                    <div class="image-card aspect-video">
+                        <img src="https://images.pexels.com/photos/3184465/pexels-photo-3184465.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="Payment Screen">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="py-12" style="background: linear-gradient(180deg, #030712 0%, #0f172a 50%, #030712 100%);">
+            <div class="container-wide">
+                <h2 class="text-2xl font-bold mb-8 text-center" style="color: #f8fafc;">Results & Impact</h2>
+                <div class="grid md:grid-cols-4 gap-6 mb-12">
+                    <div class="metric-card">
+                        <div class="metric-number" data-display="4.8">4.8</div>
+                        <div class="text-sm text-slate-400 mt-2">App Store Rating</div>
+                    </div>
+                    <div class="metric-card">
+                        <div class="metric-number" data-count="92" data-suffix="%">0</div>
+                        <div class="text-sm text-slate-400 mt-2">User Retention</div>
+                    </div>
+                    <div class="metric-card">
+                        <div class="metric-number" data-count="60" data-suffix="%">0</div>
+                        <div class="text-sm text-slate-400 mt-2">Task Completion</div>
+                    </div>
+                    <div class="metric-card">
+                        <div class="metric-number" data-count="40" data-suffix="%">0</div>
+                        <div class="text-sm text-slate-400 mt-2">Support Tickets Down</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="py-12">
+            <div class="container-wide">
+                <h2 class="text-2xl font-bold mb-8" style="color: #f8fafc;">Design Tools & Assets</h2>
+                <div class="flex flex-wrap gap-3">
+                    <span class="tag">Figma</span>
+                    <span class="tag">Protopie</span>
+                    <span class="tag">Adobe Illustrator</span>
+                    <span class="tag">Principle</span>
+                    <span class="tag">Zeplin</span>
+                </div>
+            </div>
+        </section>
+
+        <section class="py-12">
+            <div class="container-wide">
+                <div class="bg-gradient-to-r from-yellow-500/10 via-purple-500/10 to-yellow-500/10 rounded-3xl p-12 text-center border border-white/10">
+                    <h2 class="text-2xl md:text-3xl font-bold mb-4" style="color: #f8fafc;">
+                        Need a Stunning App Design?
+                    </h2>
+                    <p class="text-lg mb-8" style="color: #cbd5e1;">
+                        Let's create an app design that users will love and remember.
+                    </p>
+                    <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+                        <a href="https://wa.me/message/L6EIUV5F7QFWF1" target="_blank" class="btn-primary">
+                            Start Conversation
+                            <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                            </svg>
+                        </a>
+                        <a href="../portfolio.html" class="btn-secondary">View More Projects</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="py-8">
+        <div class="container-wide text-center">
+            <p class="text-sm text-slate-500">© 2025 Circlerslab. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <div class="whatsapp-float">
+        <a href="https://wa.me/message/L6EIUV5F7QFWF1" target="_blank" class="whatsapp-btn">
+            <svg class="w-7 h-7 text-white" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+            </svg>
+        </a>
+    </div>
+
+    <script>
+        // Animated Counter
+        const counters = document.querySelectorAll('.metric-number[data-count]');
+        const counterObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const el = entry.target;
+                    const target = parseInt(el.dataset.count);
+                    const suffix = el.dataset.suffix || '';
+                    const displayText = el.dataset.display;
+                    let current = 0;
+                    const increment = target / 60;
+                    const duration = 2000;
+                    const stepTime = duration / 60;
+                    
+                    const timer = setInterval(() => {
+                        current += increment;
+                        if (current >= target) {
+                            current = target;
+                            clearInterval(timer);
+                        }
+                        
+                        if (displayText) {
+                            el.textContent = displayText;
+                        } else {
+                            el.textContent = Math.floor(current) + suffix;
+                        }
+                    }, stepTime);
+                    
+                    counterObserver.unobserve(el);
+                }
+            });
+        }, { threshold: 0.5 });
+
+        counters.forEach(counter => counterObserver.observe(counter));
+    </script>
+</body>
+
+</html>

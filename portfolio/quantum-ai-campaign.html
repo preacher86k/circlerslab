@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quantum AI Campaign | Circlerslab Portfolio</title>
+    <meta name="description" content="Quantum AI Campaign - AI-generated marketing visuals and video content created by Circlerslab for brand storytelling and digital marketing.">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root { --bg-primary: #030712; --accent: #06b6d4; }
+        * { -webkit-font-smoothing: antialiased; }
+        body { font-family: 'Inter', sans-serif; background-color: var(--bg-primary); color: #f8fafc; line-height: 1.6; }
+        .text-gradient { background: linear-gradient(135deg, #06b6d4 0%, #8b5cf6 50%, #ec4899 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+        .hero-bg { position: absolute; inset: 0; overflow: hidden; z-index: 0; }
+        .hero-bg::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse at 30% 0%, rgba(236, 72, 153, 0.15) 0%, transparent 50%), radial-gradient(ellipse at 70% 100%, rgba(6, 182, 212, 0.1) 0%, transparent 50%); }
+        .orb { position: absolute; border-radius: 50%; filter: blur(60px); animation: float 20s ease-in-out infinite; }
+        .orb-1 { width: 400px; height: 400px; background: linear-gradient(135deg, rgba(236, 72, 153, 0.3), rgba(236, 72, 153, 0.05)); top: -100px; right: -100px; }
+        .orb-2 { width: 300px; height: 300px; background: linear-gradient(135deg, rgba(6, 182, 212, 0.3), rgba(6, 182, 212, 0.05)); bottom: 0; left: -100px; }
+        @keyframes float { 0%, 100% { transform: translate(0, 0); } 50% { transform: translate(20px, -20px); } }
+        header { background: rgba(3, 7, 18, 0.8); backdrop-filter: blur-2xl; border-bottom: 1px solid rgba(255, 255, 255, 0.05); }
+        .btn-primary { background: linear-gradient(135deg, #06b6d4 0%, #0891b2 100%); color: #030712; font-weight: 600; padding: 14px 28px; border-radius: 12px; transition: all 0.3s; display: inline-flex; align-items: center; gap: 10px; }
+        .btn-primary:hover { transform: translateY(-3px); box-shadow: 0 20px 40px rgba(6, 182, 212, 0.3); }
+        .btn-secondary { background: transparent; border: 1px solid rgba(148, 163, 184, 0.3); color: #f8fafc; font-weight: 500; padding: 14px 28px; border-radius: 12px; transition: all 0.3s; }
+        .btn-secondary:hover { border-color: #06b6d4; color: #06b6d4; background: rgba(6, 182, 212, 0.1); }
+        .container-wide { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+        .tag { display: inline-block; padding: 6px 12px; background: linear-gradient(135deg, rgba(6, 182, 212, 0.15), rgba(139, 92, 246, 0.1)); border: 1px solid rgba(6, 182, 212, 0.2); color: #06b6d4; font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; border-radius: 6px; }
+        .heading-section { font-size: clamp(2rem, 5vw, 3rem); font-weight: 700; line-height: 1.2; letter-spacing: -0.03em; }
+        .detail-card { background: linear-gradient(135deg, rgba(15, 23, 42, 0.6), rgba(15, 23, 42, 0.3)); border: 1px solid rgba(148, 163, 184, 0.1); border-radius: 16px; padding: 24px; }
+        .metric-card { background: linear-gradient(135deg, rgba(15, 23, 42, 0.6), rgba(15, 23, 42, 0.3)); border: 1px solid rgba(148, 163, 184, 0.1); border-radius: 16px; padding: 24px; text-align: center; transition: all 0.3s; }
+        .metric-card:hover { border-color: rgba(6, 182, 212, 0.3); transform: translateY(-4px); }
+        .metric-number { font-size: 48px; font-weight: 800; background: linear-gradient(135deg, #06b6d4, #8b5cf6); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; line-height: 1; }
+        .image-card { border-radius: 16px; overflow: hidden; position: relative; }
+        .image-card img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.6s; }
+        .image-card:hover img { transform: scale(1.05); }
+        .video-container { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; border-radius: 16px; background: #1e293b; }
+        .video-container iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
+        .whatsapp-float { position: fixed; bottom: 32px; right: 32px; z-index: 100; }
+        .whatsapp-btn { width: 64px; height: 64px; border-radius: 50%; background: linear-gradient(135deg, #25D366, #128C7E); display: flex; align-items: center; justify-content: center; box-shadow: 0 8px 32px rgba(37, 211, 102, 0.4); transition: all 0.3s; animation: whatsappPulse 2s ease-in-out infinite; }
+        @keyframes whatsappPulse { 0%, 100% { box-shadow: 0 8px 32px rgba(37, 211, 102, 0.4), 0 0 0 4px rgba(37, 211, 102, 0.2); } 50% { box-shadow: 0 8px 32px rgba(37, 211, 102, 0.6), 0 0 0 12px rgba(37, 211, 102, 0.1); } }
+        .whatsapp-btn:hover { transform: scale(1.1); }
+        @media (max-width: 768px) { .whatsapp-float { bottom: 20px; right: 20px; } .whatsapp-btn { width: 56px; height: 56px; } }
+
+        /* ========== RESPONSIVE STYLES ========== */
+        @media (max-width: 768px) {
+            header .container-wide { padding: 0 16px !important; max-width: 100% !important; }
+            main { padding-top: 100px !important; }
+            main.pb-20 { padding-bottom: 40px !important; }
+            .hero-bg { position: fixed; pointer-events: none; }
+            .orb { width: 150px !important; height: 150px !important; }
+            .orb-1 { top: -50px; right: -100px; }
+            .orb-2 { display: none; }
+            section.relative.py-12, section.py-12 { padding: 20px 16px !important; }
+            .container-wide { padding: 0 16px !important; max-width: 100% !important; }
+            .heading-section { font-size: clamp(1.8rem, 7vw, 3rem) !important; }
+            .text-lg { font-size: 1rem !important; }
+            .grid.grid-cols-2.md\:grid-cols-4 { grid-template-columns: 1fr 1fr !important; gap: 12px !important; }
+            .detail-card { padding: 16px !important; }
+            .grid.md\:grid-cols-3 { grid-template-columns: 1fr !important; }
+            .metric-card { padding: 20px !important; }
+            .metric-number { font-size: 32px !important; }
+            .image-card { border-radius: 12px !important; margin-bottom: 16px !important; }
+            .video-container { border-radius: 12px !important; }
+            .bg-gradient-to-r.rounded-3xl.p-12 { padding: 24px !important; border-radius: 16px !important; }
+            footer { padding: 32px 16px !important; }
+        }
+        @media (max-width: 480px) {
+            .grid.grid-cols-2.md\:grid-cols-4 { grid-template-columns: 1fr !important; }
+            .btn-primary, .btn-secondary { width: 100% !important; justify-content: center !important; }
+        }
+        @supports (-webkit-touch-callout: none) { @media (max-width: 768px) { body { min-height: -webkit-fill-available; } } }
+    </style>
+</head>
+
+<body class="antialiased">
+
+    <header class="fixed top-0 left-0 right-0 z-50">
+        <div class="container-wide">
+            <div class="flex items-center justify-between h-20">
+                <a href="../portfolio.html" class="flex items-center gap-3">
+                    <svg class="w-5 h-5 text-cyan-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M10 19l-7-7m0 0l7-7m-7 7h18" /></svg>
+                    <span class="text-sm font-medium text-slate-300">Back to Portfolio</span>
+                </a>
+                <a href="../index.html" class="flex items-center gap-3">
+                    <img src="../../logo1.png" alt="Circlerslab Logo" class="h-10 w-auto">
+                    <span class="text-lg font-bold hidden sm:block">Circlerslab</span>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <main class="pt-32 pb-20">
+        <section class="relative py-12 overflow-hidden">
+            <div class="hero-bg"><div class="orb orb-1"></div><div class="orb orb-2"></div></div>
+            <div class="container-wide relative z-10">
+                <div class="flex flex-wrap gap-3 mb-6">
+                    <span class="tag">AI Visuals</span>
+                    <span class="tag">Video Production</span>
+                    <span class="tag">Marketing</span>
+                </div>
+                <h1 class="heading-section mb-6">Quantum AI Campaign</h1>
+                <p class="text-lg max-w-3xl leading-relaxed mb-12" style="color: #cbd5e1;">
+                    Revolutionary AI-generated marketing campaign featuring cinematic visuals and video content that captures the essence of quantum computing for a tech innovator.
+                </p>
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-12">
+                    <div class="detail-card">
+                        <div class="text-xs text-slate-400 uppercase tracking-wider mb-2">Client</div>
+                        <div class="font-semibold" style="color: #f8fafc;">Quantum Labs</div>
+                    </div>
+                    <div class="detail-card">
+                        <div class="text-xs text-slate-400 uppercase tracking-wider mb-2">Location</div>
+                        <div class="font-semibold" style="color: #f8fafc;">Boston, MA</div>
+                    </div>
+                    <div class="detail-card">
+                        <div class="text-xs text-slate-400 uppercase tracking-wider mb-2">Launch Date</div>
+                        <div class="font-semibold" style="color: #f8fafc;">February 2025</div>
+                    </div>
+                    <div class="detail-card">
+                        <div class="text-xs text-slate-400 uppercase tracking-wider mb-2">Job Type</div>
+                        <div class="font-semibold" style="color: #f8fafc;">Campaign Production</div>
+                    </div>
+                </div>
+                <a href="https://wa.me/message/L6EIUV5F7QFWF1" target="_blank" class="btn-primary">Start Similar Project</a>
+            </div>
+        </section>
+
+        <section class="py-12">
+            <div class="container-wide">
+                <div class="video-container mb-12">
+                    <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="Quantum AI Campaign Video" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                </div>
+            </div>
+        </section>
+
+        <section class="py-12">
+            <div class="container-wide">
+                <div class="grid md:grid-cols-2 gap-8">
+                    <div>
+                        <h2 class="text-2xl font-bold mb-4" style="color: #f8fafc;">The Challenge</h2>
+                        <p class="leading-relaxed" style="color: #cbd5e1;">
+                            Quantum Labs needed a visually stunning campaign that could translate complex quantum computing concepts into compelling visual storytelling. Traditional production methods couldn't capture the abstract nature of quantum phenomena.
+                        </p>
+                    </div>
+                    <div>
+                        <h2 class="text-2xl font-bold mb-4" style="color: #f8fafc;">Our Solution</h2>
+                        <p class="leading-relaxed" style="color: #cbd5e1;">
+                            We leveraged cutting-edge AI generation tools combined with human artistic direction to create mesmerizing visuals and a cinematic video campaign that makes quantum computing accessible and visually stunning.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="py-12">
+            <div class="container-wide">
+                <h2 class="text-2xl font-bold mb-8" style="color: #f8fafc;">Campaign Assets</h2>
+                <div class="grid md:grid-cols-2 gap-6 mb-6">
+                    <div class="image-card aspect-video">
+                        <img src="https://images.pexels.com/photos/8386440/pexels-photo-8386440.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="AI Visual 1">
+                    </div>
+                    <div class="image-card aspect-video">
+                        <img src="https://images.pexels.com/photos/3184418/pexels-photo-3184418.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="AI Visual 2">
+                    </div>
+                </div>
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                    <div class="image-card aspect-square">
+                        <img src="https://images.pexels.com/photos/546819/pexels-photo-546819.jpeg?auto=compress&cs=tinysrgb&w=800&h=800&dpr=2" alt="Social Asset 1">
+                    </div>
+                    <div class="image-card aspect-square">
+                        <img src="https://images.pexels.com/photos/577585/pexels-photo-577585.jpeg?auto=compress&cs=tinysrgb&w=800&h=800&dpr=2" alt="Social Asset 2">
+                    </div>
+                    <div class="image-card aspect-square">
+                        <img src="https://images.pexels.com/photos/196644/pexels-photo-196644.jpeg?auto=compress&cs=tinysrgb&w=800&h=800&dpr=2" alt="Social Asset 3">
+                    </div>
+                    <div class="image-card aspect-square">
+                        <img src="https://images.pexels.com/photos/3183150/pexels-photo-3183150.jpeg?auto=compress&cs=tinysrgb&w=800&h=800&dpr=2" alt="Social Asset 4">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="py-12">
+            <div class="container-wide">
+                <h2 class="text-2xl font-bold mb-8" style="color: #f8fafc;">Content Created</h2>
+                <div class="grid md:grid-cols-4 gap-4">
+                    <div class="detail-card text-center">
+                        <div class="text-3xl font-bold text-gradient mb-2">15</div>
+                        <div class="text-sm text-slate-400">AI-Generated Images</div>
+                    </div>
+                    <div class="detail-card text-center">
+                        <div class="text-3xl font-bold text-gradient mb-2">3</div>
+                        <div class="text-sm text-slate-400">Promotional Videos</div>
+                    </div>
+                    <div class="detail-card text-center">
+                        <div class="text-3xl font-bold text-gradient mb-2">30+</div>
+                        <div class="text-sm text-slate-400">Social Assets</div>
+                    </div>
+                    <div class="detail-card text-center">
+                        <div class="text-3xl font-bold text-gradient mb-2">5</div>
+                        <div class="text-sm text-slate-400">Animated Banners</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="py-12" style="background: linear-gradient(180deg, #030712 0%, #0f172a 50%, #030712 100%);">
+            <div class="container-wide">
+                <h2 class="text-2xl font-bold mb-8 text-center" style="color: #f8fafc;">Campaign Results</h2>
+                <div class="grid md:grid-cols-4 gap-6">
+                    <div class="metric-card">
+                        <div class="metric-number" data-count="500" data-suffix="%">0</div>
+                        <div class="text-sm text-slate-400 mt-2">Engagement Increase</div>
+                    </div>
+                    <div class="metric-card">
+                        <div class="metric-number" data-display="2M+">2M+</div>
+                        <div class="text-sm text-slate-400 mt-2">Video Views</div>
+                    </div>
+                    <div class="metric-card">
+                        <div class="metric-number" data-count="150" data-suffix="%">0</div>
+                        <div class="text-sm text-slate-400 mt-2">Lead Generation</div>
+                    </div>
+                    <div class="metric-card">
+                        <div class="metric-number" data-count="85" data-suffix="%">0</div>
+                        <div class="text-sm text-slate-400 mt-2">Brand Recall</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="py-12">
+            <div class="container-wide">
+                <h2 class="text-2xl font-bold mb-8" style="color: #f8fafc;">Tools & Technologies</h2>
+                <div class="flex flex-wrap gap-3">
+                    <span class="tag">Midjourney</span>
+                    <span class="tag">DALL-E 3</span>
+                    <span class="tag">Stable Diffusion</span>
+                    <span class="tag">Runway</span>
+                    <span class="tag">After Effects</span>
+                    <span class="tag">Premiere Pro</span>
+                </div>
+            </div>
+        </section>
+
+        <section class="py-12">
+            <div class="container-wide">
+                <div class="bg-gradient-to-r from-cyan-500/10 via-purple-500/10 to-pink-500/10 rounded-3xl p-12 text-center border border-white/10">
+                    <h2 class="text-2xl md:text-3xl font-bold mb-4" style="color: #f8fafc;">Ready to Create Stunning AI Content?</h2>
+                    <p class="text-lg mb-8" style="color: #cbd5e1;">Let's produce a campaign that captures attention and drives results.</p>
+                    <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+                        <a href="https://wa.me/message/L6EIUV5F7QFWF1" target="_blank" class="btn-primary">Start Conversation</a>
+                        <a href="../portfolio.html" class="btn-secondary">View More Projects</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="py-8">
+        <div class="container-wide text-center">
+            <p class="text-sm text-slate-500">© 2025 Circlerslab. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <div class="whatsapp-float">
+        <a href="https://wa.me/message/L6EIUV5F7QFWF1" target="_blank" class="whatsapp-btn">
+            <svg class="w-7 h-7 text-white" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        </a>
+    </div>
+
+    <script>
+        // Animated Counter
+        const counters = document.querySelectorAll('.metric-number[data-count]');
+        const counterObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const el = entry.target;
+                    const target = parseInt(el.dataset.count);
+                    const suffix = el.dataset.suffix || '';
+                    const displayText = el.dataset.display;
+                    let current = 0;
+                    const increment = target / 60;
+                    const duration = 2000;
+                    const stepTime = duration / 60;
+                    
+                    const timer = setInterval(() => {
+                        current += increment;
+                        if (current >= target) {
+                            current = target;
+                            clearInterval(timer);
+                        }
+                        
+                        if (displayText) {
+                            el.textContent = displayText;
+                        } else {
+                            el.textContent = Math.floor(current) + suffix;
+                        }
+                    }, stepTime);
+                    
+                    counterObserver.unobserve(el);
+                }
+            });
+        }, { threshold: 0.5 });
+
+        counters.forEach(counter => counterObserver.observe(counter));
+    </script>
+</body>
+
+</html>
