@@ -836,8 +836,19 @@
             
             /* Hero Section */
             .hero-canvas {
-                position: fixed;
+                position: absolute;
                 pointer-events: none;
+                height: 100vh !important;
+                overflow: hidden;
+            }
+            
+            /* Hero Section - ensure content is visible */
+            section.relative.min-h-screen {
+                overflow: visible !important;
+            }
+            section.relative.min-h-screen .relative.z-10 {
+                position: relative !important;
+                z-index: 10 !important;
             }
             .orb {
                 width: 200px !important;
@@ -890,6 +901,36 @@
             }
             .mobile-menu.active {
                 display: block;
+            }
+            
+            /* About Section Grid - FIX TEXT VISIBILITY */
+            #about {
+                overflow: visible !important;
+                position: relative !important;
+                z-index: 10 !important;
+            }
+            #about .grid {
+                grid-template-columns: 1fr !important;
+                gap: 32px !important;
+            }
+            #about .img-container {
+                max-width: 100%;
+                margin-bottom: 16px;
+                overflow: visible !important;
+            }
+            #about .img-container .absolute {
+                position: relative !important;
+                bottom: auto !important;
+                right: auto !important;
+                margin-top: -40px !important;
+                margin-left: auto !important;
+                margin-right: 16px !important;
+                width: fit-content !important;
+                z-index: 30 !important;
+            }
+            #about .reveal {
+                position: relative !important;
+                z-index: 20 !important;
             }
             
             /* Service Cards */
@@ -1796,4 +1837,4 @@
     </script>
 </body>
 
-</html> 
+</html>
